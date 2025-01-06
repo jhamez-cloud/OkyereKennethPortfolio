@@ -23,8 +23,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0;
   z-index: 1;
 }
 
@@ -58,15 +57,15 @@ nav .active {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-/* Left */
 .hero-left {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding-top: 150px;
   z-index: 1;
 }
 
-h1{
+h1 {
   font-size: 2rem;
   font-weight: 600;
   padding: 25px 0;
@@ -93,7 +92,7 @@ p {
   font-weight: 600;
   padding: 15px 0;
   width: 200px;
-  border:none;
+  border: none;
   border-radius: 8px;
   margin-right: 50px;
   background-color: #3FA2F6;
@@ -125,26 +124,22 @@ p {
   display: flex;
   align-items: center;
   gap: 25px;
-}
-
-.social-icon{
   padding-bottom: 50px;
 }
 
 .social-icon i {
-font-size: 1.2rem;
-color: #3FA2F6;
-border: 1px solid #3FA2F6;
-border-radius: 50px;
-padding: 8px;
-height: 25px;
-width: 25px;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.12s, box-shadow 0.12s;
-cursor: pointer;
-
+  font-size: 1.2rem;
+  color: #3FA2F6;
+  border: 1px solid #3FA2F6;
+  border-radius: 50px;
+  padding: 8px;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s, box-shadow 0.12s;
+  cursor: pointer;
 }
 
 .social-icon i:hover {
@@ -153,11 +148,11 @@ cursor: pointer;
 }
 
 /* Right section */
-
 .hero-right {
   transition: background-color 3s, box-shadow 3s;
   cursor: pointer;
 }
+
 .hero-right:hover {
   background-color: rgba(6, 7, 12, 0.705);
   box-shadow: 
@@ -169,38 +164,35 @@ cursor: pointer;
 
 /* Animations */
 @keyframes fadeIn {
-  from{
+  from {
     transform: translateY(40px);
     opacity: 0;
   }
-  to{
+  to {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes fadeInTop {
-  from{
+  from {
     transform: translateY(-100%);
     opacity: 0;
   }
-  to{
+  to {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes backgroundZoom {
-  from{
+  from {
     background-size: 80%;
   }
-  to{
+  to {
     background-size: 100%;
   }
 }
-
-
-
 
 /* Apply Animations */
 h1 {
@@ -220,6 +212,7 @@ p {
   opacity: 0;
   animation-delay: 0.6s;
 }
+
 button {
   animation: fadeIn 1.8s ease-out forwards;
   opacity: 0;
@@ -240,4 +233,48 @@ button {
 
 body {
   animation: backgroundZoom 3s ease-in forwards;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 0 5%;
+  }
+
+  #hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left {
+    padding-top: 50px;
+  }
+
+  h1, h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .cta button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .social-icon {
+    justify-content: center;
+  }
 }
